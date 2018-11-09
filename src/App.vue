@@ -4,5 +4,5 @@
   </div>
 </template>
 <style lang="sass" scoped>
-  @import './style/main.scss'
+  @import './styles/main.scss'
 </style>
