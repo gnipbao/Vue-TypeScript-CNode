@@ -7,13 +7,16 @@ Vue.use(Router);
 // route level code-splitting
 // this generates a separate chunk (about.[hash].js) for this route
 // which is lazy-loaded when the route is visited.
-const TopicList = () => import(/* webpackChunkName: "topicList" */ "@/views/TopicList.vue")
-const About = () => import(/* webpackChunkName: "about" */ "@/views/About.vue")
-const Login = () => import(/* webpackChunkName: "login" */ "@/views/Login.vue")
-const Message = () => import(/* webpackChunkName: "message" */ "@/views/Message.vue")
-const Topic = () => import(/* webpackChunkName: "topic" */ "@/views/Topic.vue")
-const NewTopic = () => import(/* webpackChunkName: "newTopic" */ "@/views/NewTopic.vue")
-const User = () => import(/* webpackChunkName: "user" */ "@/views/User.vue")
+const TopicList = () =>
+  import(/* webpackChunkName: "topicList" */ "@/views/TopicList.vue");
+const About = () => import(/* webpackChunkName: "about" */ "@/views/About.vue");
+const Login = () => import(/* webpackChunkName: "login" */ "@/views/Login.vue");
+const Message = () =>
+  import(/* webpackChunkName: "message" */ "@/views/Message.vue");
+const Topic = () => import(/* webpackChunkName: "topic" */ "@/views/Topic.vue");
+const NewTopic = () =>
+  import(/* webpackChunkName: "newTopic" */ "@/views/NewTopic.vue");
+const User = () => import(/* webpackChunkName: "user" */ "@/views/User.vue");
 
 export default new Router({
   mode: "history",
@@ -25,46 +28,54 @@ export default new Router({
       component: App,
       children: [
         {
-          path: '',
+          path: "",
           redirect: {
-            name: 'list'
+            name: "list"
           }
-        }, {
-          path: '/list',
-          name: 'list',
+        },
+        {
+          path: "/list",
+          name: "list",
           component: TopicList
-        }, {
-          path: '/topic/:id',
-          name: 'topic',
+        },
+        {
+          path: "/topic/:id",
+          name: "topic",
           component: Topic
-        }, {
-          path: '/create',
-          name: 'create',
+        },
+        {
+          path: "/create",
+          name: "create",
           component: NewTopic,
           meta: {
             requiresAuth: true
           }
-        }, {
-          path: '/login',
-          name: 'login',
+        },
+        {
+          path: "/login",
+          name: "login",
           component: Login
-        }, {
-          path: '/user/:loginname',
-          name: 'user',
+        },
+        {
+          path: "/user/:loginname",
+          name: "user",
           component: User
-        }, {
-          path: '/message',
-          name: 'message',
+        },
+        {
+          path: "/message",
+          name: "message",
           component: Message,
           meta: {
             requiresAuth: true
           }
-        }, {
-          path: '/about',
-          name: 'about',
+        },
+        {
+          path: "/about",
+          name: "about",
           component: About
-        }, {
-          path: '*',
+        },
+        {
+          path: "*",
           component: TopicList
         }
       ]
